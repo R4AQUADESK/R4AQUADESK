@@ -1,6 +1,7 @@
 # Introductie
 ## Doel
-Deze repository (opslag voor definities en programma-code, in dit geval in de taal ['R'](https://www.r-project.org/)) gaat code en modules bevatten die de [DD-ECO-API](https://ddeco-test.aquadesk.nl/) implementatie van [AquaDesk](https://www.ecosys.nl/aquadesk/) gebruiken om nieuwe functionaliteit aan te bieden.
+Deze repository (opslag voor definities en programma-code, in dit geval in de taal ['R'](https://www.r-project.org/)) gaat code en modules bevatten die de [DD-ECO-API](https://ddeco-test.aquadesk.nl/) implementatie van [AquaDesk](https://www.ecosys.nl/aquadesk/) gebruiken om nieuwe functionaliteit aan te bieden.\
+Voorbeelden van deze modules zijn bijvoorbeeld het aanmaken van specifieke exports ten behoeve van beoordelingen.\
 Specifieke en gespecialiseerde modules zullen hun eigen repository krijgen onder de [R4AQUADESK](https://github.com/R4AQUADESK) organisatie.
 
 ## Code stylen
