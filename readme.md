@@ -1,6 +1,6 @@
 # Introductie
 ## Doel
-Doel van deze repository (opslag) is om toegang te geven tot de code voor modules geschreven in de taal ['R'](https://www.r-project.org/) die [AquaDesk](https://www.ecosys.nl/aquadesk/) uitbreiden via de [DD-ECO-API](https://ddeco-test.aquadesk.nl/) implementatie van [AquaDesk](https://www.ecosys.nl/aquadesk/).
+Doel van deze repository (opslag) is om toegang te geven tot de code voor modules, geschreven in de taal ['R'](https://www.r-project.org/), die [AquaDesk](https://www.ecosys.nl/aquadesk/) uitbreiden via de [DD-ECO-API](https://ddeco-test.aquadesk.nl/) implementatie van [AquaDesk](https://www.ecosys.nl/aquadesk/).
 Specifieke en gespecialiseerde modules zullen hun eingen repository krijgen onder de [R4AQUADESK](https://github.com/R4AQUADESK) organisatie.
 
 ## Code stylen
