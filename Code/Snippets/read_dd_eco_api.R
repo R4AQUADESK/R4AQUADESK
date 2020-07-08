@@ -67,7 +67,7 @@ build_dd_eco_api_url <- function(base_url, organisation = "", page = 1, pagesize
   page_filter <- stringr::str_c("?page=", page)
   pagesize_filter <- stringr::str_c("&pagesize=", pagesize)
   skip_filter <- ifelse(skip == "", "", stringr::str_c("&skip=", skip))
-  nocount_filter <- ifelse(use_nocount == FALSE, "", "&nocount=1")
+  nocount_filter <- ifelse(use_nocount == FALSE, "", "&nocount=true")
   
   # Assemble the filter
   filter_filter <- ""
