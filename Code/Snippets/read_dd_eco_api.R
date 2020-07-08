@@ -16,6 +16,7 @@
 #' @param use_nocount - optional - When set to TRUE, the request will take advantage of the new nocount parameter in AquaDesk. This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl)
 #' @param filter - optional - Comma separated list of filter parts for the DD-ECO-API to limit the amount of records to return. For filter syntax, see https://ddeco-test.aquadesk.nl 
 #' @param skip - optional - Comma separated list of fieldnames NOT to return. See the specific filters endpoint for details. Example: changedate.  This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl) 
+#' @param pagesize Maximum number of items to return per page. Defaults to 10000.
 #' @return dataframe with the query results.
 #' 
 #' @import tidyverse, httr, jsonlite
@@ -28,9 +29,8 @@
 #' read_dd_eco_api("https://ddeco-test.aquadesk.nl/v1/parameters", use_nocount = TRUE, filter = "type:eq:'TAXON"', skip = "changedate")
 #' @author Geri Wolters (EcoSys)
 #' @export
-read_dd_eco_api <- function(api_url, organisation = "", changedate = "", use_nocount = FALSE, filter = "", skip = "") {
+read_dd_eco_api <- function(api_url, organisation = "", changedate = "", use_nocount = FALSE, filter = "", skip = "", pagesize = 10000) {
   page <- 1
-  pagesize <- 10000
   df <- bind_rows()
   
   repeat
@@ -54,14 +54,17 @@ read_dd_eco_api <- function(api_url, organisation = "", changedate = "", use_noc
 #'
 #' Version 1.0
 #' @param base_url URL to the endpoint.
-#' @param organisation - optional - Code of the organisation. Defaults to empty.
-#' @param changedate - optional - When set, only retrieves changes sinds tthe specified date. The date formats are: yyyy-MM-dd, yyyy-MM-dd HH:mm:ss
-#' @param use_nocount - optional - When set to TRUE, the request will take advantage of the new nocount parameter in AquaDesk. This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl)
-#' @param filter - optional, test - Comma separated list of filter parts for the DD-ECO-API to limit the amount of records to return. For filter syntax, see https://ddeco-test.aquadesk.nl 
-#' @param skip - optional - Comma separated list of fieldnames NOT to return. See the specific filters endpoint for details. Example: changedate.  This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl) 
+#' @param organisation Code of the organisation. Defaults to empty.
+#' @param page Page number to request. Defaults to 1.
+#' @param pagesize Maximum number of items to return per page.
+#' @param changedate When set, only retrieves changes sinds the specified date. The date formats are: yyyy-MM-dd, yyyy-MM-dd HH:mm:ss
+#' @param use_nocount When set to TRUE, the request will take advantage of the new nocount parameter in AquaDesk. This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl). Defaults to FALSE.
+#' @param filter Additional filter parts. Defaults to empty.
+#' @param skip Comma separated list of field names NOT to return. See the specific filters endpoint for details. Example: changedate.  This only works in the new test-version of the DD-ECO-API (https://ddeco-test.aquadesk.nl). Defaults to empty.
 #' @return Constructed url
 #' 
 #' @importFrom stringr str_c
+#' 
 #' @export
 build_dd_eco_api_url <- function(base_url, organisation = "", page = 1, pagesize = 10000, changedate = "", use_nocount = FALSE, filter = "", skip = "") {
   page_filter <- stringr::str_c("?page=", page)
