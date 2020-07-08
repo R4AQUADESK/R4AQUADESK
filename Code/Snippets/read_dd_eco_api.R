@@ -1,11 +1,11 @@
 #' @title  read_dd_eco_api
 #' @description
-#' This generic function queries the AquaDesk DD-ECO-API. For more information about the api: https://github.com/DigitaleDeltaOrg/dd-eco-api-specs
-#' The function queries the API and returnes the results in the form of a data.frame by repeatedly requesting pages until no more results are returned.
-#' Step 1: GET --> The GET-function (httr-package) receives all information available from the url
-#' Step 2: content --> The content-function (httr-package) gives how the information should come back. In this case as text
-#' Step 3: fromJSON --> The fromJSON-function (jsonlite-package) converts the recovered information to JSON
-#' Step 4: data.frame --> The data.frame-function converts the JSON to a data.frame
+#' This generic function queries the AquaDesk DD-ECO-API. For more information about the api: https://github.com/DigitaleDeltaOrg/dd-eco-api-specs.
+#' The function queries the API and returns the results in the form of a dataframe by repeatedly requesting pages until no more results are returned.
+#' Step 1: GET --> The GET-function (httr-package) receives all information available from the url.
+#' Step 2: content --> The content-function (httr-package) gives how the information should come back. In this case as text.
+#' Step 3: fromJSON --> The fromJSON-function (jsonlite-package) converts the recovered information to JSON.
+#' Step 4: data.frame --> The data.frame-function converts the JSON to a data.frame.
 #' Various filters are available per table in the API. See as an example:
 #' https://ddeco.aquadesk.nl/v1/measurementobjects/filters
 #'
