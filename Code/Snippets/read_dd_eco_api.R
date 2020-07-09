@@ -31,13 +31,13 @@
 #' @export
 read_dd_eco_api <- function(api_url, organisation = "", changedate = "", use_nocount = FALSE, filter = "", skip = "", pagesize = 10000) {
   page <- 1
-  df <- bind_rows()
+  df <- dplyr::bind_rows()
   
   repeat
   {
     URL <- build_dd_eco_api_url(api_url, organisation, page, pagesize, changedate, use_nocount, filter, skip)
     df_request <- data.frame(jsonlite::fromJSON(httr::content(httr::GET(url = URL), "text", encoding = "UTF-8"), flatten = TRUE)[3])
-    df <- bind_rows(df, df_request)
+    df <- dplyr::bind_rows(df, df_request)
     if (nrow(df_request) < pagesize)
     {
       break
